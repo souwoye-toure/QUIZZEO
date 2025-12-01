@@ -1,0 +1,57 @@
+body {
+  background-image: url('background.jpg'); /* chemin vers ton image */
+  background-size: cover;    /* l'image couvre tout l'écran */
+  background-position: center; /* centrer l'image */
+  background-repeat: no-repeat; /* ne pas répéter l'image */
+  background-attachment: fixed; /* fixe l'image quand on scroll */
+}
+
+/* --------------- Layout helpers --------------- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 18px; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; height:72px; }
+
+/* --------------- Header & Nav --------------- */
+.site-header { background:transparent; color:#fff; position:sticky; top:0; z-index:1200; box-shadow: 0 2px 8px rgba(2,6,23,0.15); }
+.logo img { height: 10px; width:10px; }
+.top-nav ul { list-style:none; display:flex; gap:12px; align-items:center; }
+.top-nav a { color:black; text-decoration:none; padding:8px 10px; border-radius:6px; transition:transform .18s ease, background .18s ease; font-weight:600; }
+.top-nav a:hover { transform:translateY(-2px); background: rgba(255,65,54,0.08); }
+.top-nav .btn-connexion { background:pink; color:#fff; padding:8px 14px; border-radius:6px; }
+/* desktop only nav visibility handled by media queries */
+
+/* --------------- Menu button (hamburger) --------------- */
+.menu-btn { display:none; background:transparent; border:none; cursor:pointer; padding:10px; }
+.hamburger, .hamburger::before, .hamburger::after {
+  display:block; width:26px; height:2px; background:#fff; border-radius:2px; position:relative;
+}
+.hamburger::before, .hamburger::after {
+  content:""; position:absolute; left:0; transition: transform .28s ease, opacity .2s ease;
+}
+.hamburger::before { top:-8px; }
+.hamburger::after { top:8px; }
+
+/* When menu open (transforms handled by JS toggling .open on #menu-toggle) */
+.menu-btn.open .hamburger { transform: rotate(45deg); }
+.menu-btn.open .hamburger::before { transform: rotate(90deg) translateX(0); top:0; }
+.menu-btn.open .hamburger::after { opacity:0; }
+
+/* --------------- Side menu (slide-in) --------------- */
+.side-menu {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: 360px;
+  max-width: 92%;
+  height: 100vh;
+  background: linear-gradient(180deg,#ffffff,#f7f9fb);
+  box-shadow: -20px 0 60px rgba(2,6,23,0.3);
+  transition: right .45s cubic-bezier(.22,.9,.25,1), transform .45s cubic-bezier(.22,.9,.25,1);
+  z-index:1300;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  transform: translateX(8%);
+}
+.side-menu.open { right: 0; transform: translateX(0); }
