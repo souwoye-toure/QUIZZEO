@@ -11,9 +11,9 @@
       <div class="container header-inner">
         <div class="brand">
           <img
-            src="assets/img/logo_quizzeo-png.png"
+            src="logo_quizzeo-png.png"
             alt="Logo"
-            style="width: 123px; height: 70px"
+            style="width: 200px; height: 55px"
           />
         </div>
 
@@ -29,7 +29,11 @@
         </button>
 
         <!-- Nav principale (desktop) -->
-        <nav class="top-nav" role="navigation" aria-label="Navigation principale">
+        <nav
+          class="top-nav"
+          role="navigation"
+          aria-label="Navigation principale"
+        >
           <ul>
             <li><a href="#">Accueil</a></li>
             <li><a href="view/quizzes.php">Quiz</a></li>
@@ -48,7 +52,11 @@
         aria-label="Menu principal"
       >
         <div class="side-inner">
-          <button id="side-close" class="side-close" aria-label="Fermer le menu">&times;</button>
+          <button
+            id="side-close"
+            class="side-close"
+            aria-label="Fermer le menu">&times;
+          </button>
 
           <nav class="side-nav" role="navigation" aria-label="Menu mobile">
             <ul>
@@ -60,7 +68,7 @@
           </nav>
 
           <div class="side-cta">
-            <a href="#" class="btn-primary large">Connexion</a>
+            <a href="view/login.php" class="btn-primary large">Connexion</a>
           </div>
         </div>
       </aside>
@@ -68,6 +76,16 @@
       <!-- Overlay quand menu ouvert -->
       <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
     </header>
+
+    <section class="caca">
+      <h1>Bienvenu sur Quizzeo !</h1>
+      <p>
+        Découvre des Quizz créé par nos utilisateurs, en cliquant <br />
+        sur le bouton ci-dessous :
+      </p>
+      <br />
+      <a href="quizzes.php"><button>Voir les Quizz</button></a>
+    </section>
     <script src="assets/script.js"></script>
   </body>
 </html>
