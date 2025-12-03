@@ -1,29 +1,6 @@
 <?php
 $user = current_user();
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Quizzeo - Accueil</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body class="bg">
-<header class="topbar">
-  <div class="brand">
-    <span class="brand-logo">QZ</span>
-    <span class="brand-name">Quiz Platform</span>
-  </div>
-  <nav class="nav">
-    <?php if ($user): ?>
-      <span class="nav-user">Connecté en tant que <?= htmlspecialchars($user['username']) ?> (<?= htmlspecialchars($user['role']) ?>)</span>
-      <a class="btn ghost" href="/../views/dashboard.php">Mon dashboard</a>
-      <a class="btn ghost" href="/../views/logout.php">Se déconnecter</a>
-    <?php else: ?>
-      <a class="btn ghost" href="/../views/login.php">Se connecter</a>
-    <?php endif; ?>
-  </nav>
-</header>
 
 <main class="container">
   <section class="card hero">
