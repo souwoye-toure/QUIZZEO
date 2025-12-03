@@ -1,93 +1,112 @@
 <?php
-require_once __DIR__ . 'config/database.php';
+require_once __DIR__ . '/config/database.php';
 
-function quizzes_all() {
-    return db_read('quizzes.json');
+
+ // Lire tous les utilisateurs depuis un fichier JSON
+
+function users_all() {
+    return db_read('users.json'); // Retourne un tableau d'utilisateurs
 }
 
-function quizzes_save_all($quizzes) {
-    db_write('quizzes.json', $quizzes);
+
+ // Enregistrer tous les utilisateurs dans users.json
+
+function users_save_all($users) {
+    db_write('users.json', $users);
 }
 
-function quizzes_published() {
-    $out = [];
-    foreach (quizzes_all() as $q) {
-        if (($q['status'] ?? '') === 'lancé') {
-            $out[] = $q;
+
+ //Trouver un utilisateur par son nom d'utilisateur
+ 
+function users_find_by_username($username) {
+    foreach (users_all() as $u) {
+        // strcasecmp = compare sans tenir compte des majuscules/minuscules
+        if (strcasecmp($u['username'], $username) === 0) {
+            return $u;
         }
     }
-    return $out;
+    return null; // Aucun utilisateur trouvé
 }
 
-function quizzes_by_user($userId) {
-    $out = [];
-    foreach (quizzes_all() as $q) {
-        if (($q['user_id'] ?? null) === $userId) $out[] = $q;
-    }
-    return $out;
-}
 
-function quizzes_find($id) {
-    foreach (quizzes_all() as $q) {
-        if ($q['id'] === $id) return $q;
+ //Trouver un utilisateur par ID
+
+function users_find_by_id($id) {
+    foreach (users_all() as $u) {
+        if ($u['id'] === $id) {
+            return $u;
+        }
     }
     return null;
 }
 
-function quizzes_next_id() {
-    $max = 0;
-    foreach (quizzes_all() as $q) {
-        $num = intval(preg_replace('/\D+/', '', $q['id']));
-        if ($num > $max) $max = $num;
-    }
-    return 'q_' . ($max + 1);
-}
 
-function quizzes_create($user, $title, $description, $questions = []) {
-    $all = quizzes_all();
-    $id = quizzes_next_id();
-    $quiz = [
-        'id' => $id,
-        'user_id' => $user['id'],
-        'author' => $user['username'],
-        'title' => $title,
-        'description' => $description,
-        'status' => 'en cours d\'écriture',
-        'questions' => $questions,
-        'responses' => [],
-        'created_at' => date('Y-m-d H:i:s')
+// Si users.json est vide → créer 4 utilisateurs par défaut
+
+function users_create_default_if_empty() {
+    $users = users_all();
+    if ($users) return; // Si déjà des utilisateurs → ne rien faire
+
+    //  Hash du mot de passe "password"
+    $hash = password_hash('password', PASSWORD_DEFAULT);
+
+    // Liste des utilisateurs par défaut
+    $users = [
+        [
+            'id' => 'u_admin',
+            'username' => 'admin',
+            'role' => 'administrateur',
+            'password' => $hash,
+            'is_active' => true
+        ],
+        [
+            'id' => 'u_ecole',
+            'username' => 'ecole',
+            'role' => 'ecole',
+            'password' => $hash,
+            'is_active' => true
+        ],
+        [
+            'id' => 'u_entreprise',
+            'username' => 'entreprise',
+            'role' => 'entreprise',
+            'password' => $hash,
+            'is_active' => true
+        ],
+        [
+            'id' => 'u_user',
+            'username' => 'user',
+            'role' => 'utilisateur',
+            'password' => $hash,
+            'is_active' => true
+        ]
     ];
-    $all[] = $quiz;
-    quizzes_save_all($all);
-    return $quiz;
+
+    // Sauvegarde dans le fichier JSON
+    users_save_all($users);
 }
 
-function quizzes_toggle_status($id) {
-    $all = quizzes_all();
-    foreach ($all as &$q) {
-        if ($q['id'] === $id) {
-            if ($q['status'] === 'en cours d\'écriture') $q['status'] = 'lancé';
-            else if ($q['status'] === 'lancé') $q['status'] = 'terminé';
-            else $q['status'] = 'en cours d\'écriture';
-        }
-    }
-    quizzes_save_all($all);
-}
 
-function quizzes_add_response($quizId, $user, $answers, $score, $max) {
-    $all = quizzes_all();
-    foreach ($all as &$q) {
-        if ($q['id'] === $quizId) {
-            if (!isset($q['responses']) || !is_array($q['responses'])) $q['responses'] = [];
-            $q['responses'][] = [
-                'user_id' => $user['id'],
-                'username' => $user['username'],
-                'score' => $score,
-                'max' => $max,
-                'answers' => $answers,
-                'answered_at' => date('Y-m-d H:i:s')
-            ];
-        }
+ // Vérifier l'authentification d'un utilisateur
+
+function users_authenticate($username, $password) {
+
+    // S’assure que les utilisateurs par défaut existent
+    users_create_default_if_empty();
+
+    // Cherche l'utilisateur par son nom
+    $u = users_find_by_username($username);
+
+    // Si pas trouvé ou désactivé → échec
+    if (!$u || empty($u['is_active'])) {
+        return null;
     }
-    quizzes_save_all($all);
+
+    // Vérifie le mot de passe haché avec password_verify
+    if (!password_verify($password, $u['password'])) {
+        return null;
+    }
+
+    // Tout est bon → retourner l'utilisateur
+    return $u;
 }
