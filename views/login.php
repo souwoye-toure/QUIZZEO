@@ -1,5 +1,5 @@
 <?php
-<?php
+
 // Helpers (remonte d'un dossier)
 require_once __DIR__ . '/../includes/helpers.php';
 
