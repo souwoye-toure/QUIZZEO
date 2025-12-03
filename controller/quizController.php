@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../includes/helpers.php';
-require_once __DIR__ . '/../functions/quizzes.php';
+require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/functions/quizzes.php';
 
 function handle_quiz_creation($user) {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') return;
