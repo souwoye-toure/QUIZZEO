@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../includes/helpers.php';
-require_once __DIR__ . '/../controller/userController.php';
+require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/controller/userController.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     handle_login_submit();
