@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "role": "admin",
+      "email": "admin@quizzeo.local",
+      "name": "Admin",
+      "password": "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.Gdh2u8dZ0jKq8vG6",
+      "active": true
+    }
+  ],
+  "quizzes": []
+}
