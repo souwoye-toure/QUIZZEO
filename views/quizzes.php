@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../includes/helpers.php';
-require_once __DIR__ . '/../functions/quizzes.php';
+require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/functions/quizzes.php';
 $quizzes = quizzes_published();
 $user = current_user();
 ?>
