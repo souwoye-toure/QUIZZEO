@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . 'config/database.php';
 
 function quizzes_all() {
     return db_read('quizzes.json');
