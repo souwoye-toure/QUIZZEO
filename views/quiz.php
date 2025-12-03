@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../includes/helpers.php';
-require_once __DIR__ . '/../functions/quizzes.php';
-require_once __DIR__ . '/../controller/quizController.php';
+require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/functions/quizzes.php';
+require_once __DIR__ . '/controller/quizController.php';
 
 $user = current_user();
 if (!$user) {
