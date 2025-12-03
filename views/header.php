@@ -59,5 +59,6 @@
               <li><a href="views/login.php" class="btn-connexion">Connexion</a></li>
             </ul>
           </nav>
-</body>
-</html>
+        </div>
+      </aside>
+    </header>
