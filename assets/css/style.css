@@ -100,12 +100,13 @@ a:hover {
 
 /*HERO SECTION */
 .hero h1 {
-  margin-top: 0;
-  font-size: 2.2rem;
   background: linear-gradient(90deg, #2563eb, #4f46e5);
-  -webkit-background-clip: text;
+  background-clip: text;              /* version standard */
+  -webkit-background-clip: text;      /* version pour WebKit (Chrome, Safari) */
   -webkit-text-fill-color: transparent;
+  color: transparent;                 /* fallback pour compatibilité */
 }
+
 
 .hero p {
   margin: .3rem 0;
