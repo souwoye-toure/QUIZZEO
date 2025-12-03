@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "database.php";
+require_once "/config/database.php";
 
 $errors = [];
 $firstname = "";
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "password" => $hashedPassword
         ]);
         $_SESSION["message"] = "Inscription réussie ! vous pouvez maintenant vous connecter.";
-        header("Location: view/login.php");
+        header("Location: /view/login.php");
         exit;
     }
 }
