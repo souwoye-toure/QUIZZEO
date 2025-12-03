@@ -1,7 +1,14 @@
 <?php
-require_once __DIR__ . '/includes/helpers.php';
-require_once __DIR__ . '/controller/userController.php';
-require_once __DIR__ .'/views/header.php';
+<?php
+// Helpers (remonte d'un dossier)
+require_once __DIR__ . '/../includes/helpers.php';
+
+// Contrôleur utilisateur (remonte d'un dossier)
+require_once __DIR__ . '/../controller/userController.php';
+
+// Header (reste dans views)
+require_once __DIR__ . '/header.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     handle_login_submit();
