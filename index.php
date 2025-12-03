@@ -5,7 +5,7 @@ $user = current_user();
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz Platform - Accueil</title>
+  <title>Quizzeo - Accueil</title>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="bg">
@@ -17,10 +17,10 @@ $user = current_user();
   <nav class="nav">
     <?php if ($user): ?>
       <span class="nav-user">Connecté en tant que <?= htmlspecialchars($user['username']) ?> (<?= htmlspecialchars($user['role']) ?>)</span>
-      <a class="btn ghost" href="/views/dashboard.php">Mon dashboard</a>
-      <a class="btn ghost" href="/views/logout.php">Se déconnecter</a>
+      <a class="btn ghost" href="/../views/dashboard.php">Mon dashboard</a>
+      <a class="btn ghost" href="/../views/logout.php">Se déconnecter</a>
     <?php else: ?>
-      <a class="btn ghost" href="/views/login.php">Se connecter</a>
+      <a class="btn ghost" href="/../views/login.php">Se connecter</a>
     <?php endif; ?>
   </nav>
 </header>
@@ -32,7 +32,7 @@ $user = current_user();
     <div class="hero-actions">
       <a href="#quizzes" class="btn primary">Voir les quiz publiés</a>
       <?php if (!$user): ?>
-      <a href="/views/login.php" class="btn ghost">Se connecter</a>
+      <a href="/../views/login.php" class="btn ghost">Se connecter</a>
       <?php endif; ?>
     </div>
   </section>
@@ -51,7 +51,7 @@ $user = current_user();
               Créé par <?= htmlspecialchars($q['author'] ?? 'inconnu') ?><br>
               Statut : <?= htmlspecialchars($q['status'] ?? '') ?>
             </p>
-            <a class="btn ghost" href="/views/quiz.php?id=<?= urlencode($q['id']) ?>">Répondre</a>
+            <a class="btn ghost" href="/../views/quiz.php?id=<?= urlencode($q['id']) ?>">Répondre</a>
           </article>
         <?php endforeach; ?>
       </div>
