@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/views/header.php';
+require_once __DIR__ . '/includes/helpers.php';
 // Récupère l'utilisateur connecté
 $user = current_user();
 ?>
