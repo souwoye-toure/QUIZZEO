@@ -1,43 +1,64 @@
 <?php
 require_once __DIR__ . '/includes/helpers.php';
 require_once __DIR__ . '/controller/userController.php';
+require_once __DIR__ .'/views/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     handle_login_submit();
 }
 $error = get_flash('error');
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Connexion - Quiz Platform</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body class="bg">
-<header class="topbar">
-  <div class="brand">
-    <span class="brand-logo">QZ</span>
-    <span class="brand-name">Quiz Platform</span>
-  </div>
-</header>
+
 <main class="container single">
+  <!-- Section principale, centrée dans un container -->
+  
   <section class="card auth">
+    <!-- Carte visuelle contenant le formulaire d'authentification -->
+    
     <h1>Connexion</h1>
+
     <?php if ($error): ?>
-      <div class="alert error"><?= htmlspecialchars($error) ?></div>
+      <!-- Si une erreur existe (ex: mauvais identifiants), on l'affiche -->
+      <div class="alert error">
+        <?= htmlspecialchars($error) ?>
+        <!-- htmlspecialchars() empêche l'injection HTML -->
+      </div>
     <?php endif; ?>
+
     <form method="post" class="form">
+      <!-- Formulaire envoyé en méthode POST -->
+
       <label>Nom d'utilisateur
+        <!-- Champ texte pour le username -->
         <input type="text" name="username" required>
       </label>
+
       <label>Mot de passe
+        <!-- Champ mot de passe -->
         <input type="password" name="password" required>
       </label>
-      <button class="btn primary" type="submit">Se connecter</button>
+
+      <button class="btn primary" type="submit">
+        Se connecter
+      </button>
+      <!-- Bouton d’envoi du formulaire -->
     </form>
-    <p class="hint">Comptes de test : <code>admin</code>, <code>ecole</code>, <code>entreprise</code>, <code>user</code> (mot de passe : <code>password</code>).</p>
+
+    <p class="hint">
+      <!-- Infos de test affichées sous le formulaire -->
+      Comptes de test :
+      <code>admin</code>,
+      <code>ecole</code>,
+      <code>entreprise</code>,
+      <code>user</code>
+      (mot de passe : <code>password</code>).
+    </p>
+    
   </section>
 </main>
-</body>
-</html>
+
+
+<?php
+require_once __DIR__ .'/views/footer.php';
+?>
+
