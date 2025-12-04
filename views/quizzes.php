@@ -9,8 +9,6 @@ require_once __DIR__ . '/../includes/helpers.php';
 // Fonctions liées aux quiz (lecture, récupération des quiz publiés, etc.)
 require_once __DIR__ . '/../functions/quizzes.php';
 
-// Header HTML (navigation, structure de page)
-require_once __DIR__ . '/../views/header.php';
 
 
 // Récupération des quiz publiés
@@ -27,7 +25,7 @@ $user = current_user();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=<!-- CONTENU PRINCIPAL : affichage des quiz -->
 <main class="container">
-  <link rel="stylesheet" href="/../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <section class="card">
 
 <body>
