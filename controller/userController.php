@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__ . '/includes/helpers.php';
-require_once __DIR__ . '/functions/users.php';
+
+require_once __DIR__ . '/../includes/helpers.php';
+
+require_once __DIR__ . '/../functions/users.php';
 
 function handle_login_submit() {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') return null;

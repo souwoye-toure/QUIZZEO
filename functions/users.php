@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config/database.php'; 
+require_once __DIR__ . '/../config/database.php'; 
 // database.php contient db_read() et db_write(), qui gèrent le fichier JSON
 
 // Retourne tous les utilisateurs sous forme de tableau PHP

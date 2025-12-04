@@ -66,6 +66,6 @@ $error = get_flash('error');
 
 
 <?php
-require_once __DIR__ .'/views/footer.php';
+require_once __DIR__ .'/../views/footer.php';
 ?>
 
