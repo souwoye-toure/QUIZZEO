@@ -4,6 +4,7 @@ require_once __DIR__ . '/config/database.php';
 
 // Retourne tous les utilisateurs sous forme de tableau PHP
 
+
 function users_all() {
     return db_read('users.json'); 
 }
