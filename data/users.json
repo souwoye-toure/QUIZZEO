@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "id": "u_admin",
+        "username": "admin",
+        "role": "administrateur",
+        "password": "$2y$10$Kcu0Kk6fY4rNAk.5IKRoXOq4wdjie.y6Jc\/Sd1yeI0qLZvafCPOmK",
+        "is_active": true
+    },
+    {
+        "id": "u_ecole",
+        "username": "ecole",
+        "role": "ecole",
+        "password": "$2y$10$Kcu0Kk6fY4rNAk.5IKRoXOq4wdjie.y6Jc\/Sd1yeI0qLZvafCPOmK",
+        "is_active": true
+    },
+    {
+        "id": "u_entreprise",
+        "username": "entreprise",
+        "role": "entreprise",
+        "password": "$2y$10$Kcu0Kk6fY4rNAk.5IKRoXOq4wdjie.y6Jc\/Sd1yeI0qLZvafCPOmK",
+        "is_active": true
+    },
+    {
+        "id": "u_user",
+        "username": "user",
+        "role": "utilisateur",
+        "password": "$2y$10$Kcu0Kk6fY4rNAk.5IKRoXOq4wdjie.y6Jc\/Sd1yeI0qLZvafCPOmK",
+        "is_active": true
+    }
+]

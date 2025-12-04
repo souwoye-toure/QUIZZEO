@@ -2,7 +2,6 @@
 
 // Inclusion des fichiers nécessaires
 
-
 // Fonctions utilitaires : current_user(), redirect(), flash(), etc.
 require_once __DIR__ . '/../includes/helpers.php';
 
@@ -50,7 +49,7 @@ $user = current_user();
             </p>
 
             <!-- Lien pour répondre au quiz -->
-            <a class="btn ghost" href="/views/quiz.php?id=<?= urlencode($q['id']) ?>">
+            <a class="btn ghost" href="/../views/quiz.php?id=<?= urlencode($q['id']) ?>">
               Répondre
             </a>
 
