@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/includes/helpers.php';   // Pour set_flash(), redirections, etc
-require_once __DIR__ . '/functions/quizzes.php'; // Pour quizzes_create(), quizzes_add_response(), etc
+require_once __DIR__ . '/../includes/helpers.php';   // Pour set_flash(), redirections, etc
+require_once __DIR__ . '/../functions/quizzes.php'; // Pour quizzes_create(), quizzes_add_response(), etc
 
 // Gère la création d'un quiz (envoyé depuis un formulaire POST)
 
