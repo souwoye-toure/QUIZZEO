@@ -1,5 +1,5 @@
 <footer class="footer">
-  &copy; 2025 Quiz Platform
+  &copy; 2025 Quizzeo
 </footer>
 </body>
 </html>
