@@ -21,11 +21,18 @@ $quizzes = quizzes_published(); // Renvoie un tableau de quiz dont le statut est
 $user = current_user();
 ?>
 
-<!-- CONTENU PRINCIPAL : affichage des quiz -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<!-- CONTENU PRINCIPAL : affichage des quiz -->
 <main class="container">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <section class="card">
 
-    <h1>Quiz disponibles</h1>
+<body>
+  <?php include __DIR__ . '/views/header.php' ?>
+      <h1>Quiz disponibles</h1>
 
     <!-- Si aucun quiz n'est disponible -->
     <?php if (empty($quizzes)): ?>
@@ -67,3 +74,8 @@ $user = current_user();
 require_once __DIR__ . '/../views/footer.php';
 ?>
 
+, initial-scale=1.0">
+  <title>Document</title>
+</head>
+</body>
+</html>
