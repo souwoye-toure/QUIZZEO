@@ -9,6 +9,8 @@ require_once __DIR__ . '/../includes/helpers.php';
 // Fonctions liées aux quiz (lecture, récupération des quiz publiés, etc.)
 require_once __DIR__ . '/../functions/quizzes.php';
 
+// Header HTML (navigation, structure de page)
+require_once __DIR__ . '/../views/header.php';
 
 
 // Récupération des quiz publiés
@@ -27,9 +29,10 @@ $user = current_user();
 <main class="container">
   <link rel="stylesheet" href="/assets/css/style.css">
   <section class="card">
-
+  <title>Document</title>
+</head>
 <body>
-  <?php include __DIR__ . '/../views/header.php' ?>
+  <?php include __DIR__ . '/views/header.php' ?>
       <h1>Quiz disponibles</h1>
 
     <!-- Si aucun quiz n'est disponible -->
@@ -55,7 +58,7 @@ $user = current_user();
             </p>
 
             <!-- Lien pour répondre au quiz -->
-            <a class="btn ghost" href="/../views/quiz.php?id=<?= urlencode($q['id']) ?>">
+            <a class="btn ghost" href="/views/quiz.php?id=<?= urlencode($q['id']) ?>">
               Répondre
             </a>
 
@@ -73,7 +76,5 @@ require_once __DIR__ . '/../views/footer.php';
 ?>
 
 , initial-scale=1.0">
-  <title>Document</title>
-</head>
 </body>
 </html>
