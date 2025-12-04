@@ -27,11 +27,11 @@ $user = current_user();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=<!-- CONTENU PRINCIPAL : affichage des quiz -->
 <main class="container">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/../assets/css/style.css">
   <section class="card">
 
 <body>
-  <?php include __DIR__ . '/views/header.php' ?>
+  <?php include __DIR__ . '/../views/header.php' ?>
       <h1>Quiz disponibles</h1>
 
     <!-- Si aucun quiz n'est disponible -->
@@ -57,7 +57,7 @@ $user = current_user();
             </p>
 
             <!-- Lien pour répondre au quiz -->
-            <a class="btn ghost" href="/views/quiz.php?id=<?= urlencode($q['id']) ?>">
+            <a class="btn ghost" href="/../views/quiz.php?id=<?= urlencode($q['id']) ?>">
               Répondre
             </a>
 
