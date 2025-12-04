@@ -31,7 +31,7 @@ $user = current_user();
   <title>Document</title>
 </head>
 <body>
-  <?php include __DIR__ . '/views/header.php' ?>
+  <?php include __DIR__ . '/../views/header.php' ?>
       <h1>Quiz disponibles</h1>
 
     <!-- Si aucun quiz n'est disponible -->
