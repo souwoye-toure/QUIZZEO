@@ -1,27 +1,30 @@
 <?php
 
-
 require_once __DIR__ . '/includes/helpers.php';
 // Récupère l'utilisateur connecté
 $user = current_user();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>page header</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+
 </head>
-<body>
-    <?php
-        require_once __DIR__ . '/../views/header.php';
-    ?>
-    <main class="container">
+<body style="background-image: url('assets/img/background.png'); 
+             background-size: cover; 
+             background-position: center; 
+             background-repeat: no-repeat;">
+             
+    <?php include __DIR__ . '/views/header.php' ?>
+<main class="container">
   <!-- Section d'accueil -->
   <section class="card hero">
-    <h1>Bienvenue sur Quiz Platform</h1>
+    <h1>Bienvenue sur Quizzeo</h1>
     <p>Créez des quiz, partagez-les et consultez les résultats de vos participants.</p>
     <div class="hero-actions">
       <!-- Bouton vers la section quiz -->
@@ -64,5 +67,3 @@ $user = current_user();
 <?php
 require_once __DIR__ . '/views/footer.php';
 ?>
-</body>
-</html>
