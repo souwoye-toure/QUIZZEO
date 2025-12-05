@@ -1,42 +1,19 @@
 <?php
+$host = '127.0.0.1';        // ou 'localhost'
+$db   = 'quizzeo_db';         // nom de la base que tu as créée
+$user = 'root';             // utilisateur MySQL
+$pass = 'SuperPass2024!';   // mot de passe root que tu as défini
+$charset = 'utf8mb4';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "quizzeo_db"; // nom exact de la base
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    
-    // Mode d'erreur : exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // Mode de récupération par défaut : tableau associatif
-    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
+    $conn = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    exit;
+    die("Erreur de connexion : " . $e->getMessage());
 }
-
-/**
- * Lire un fichier JSON et retourner son contenu sous forme de tableau
- */
-function db_read($filename) {
-    $path = __DIR__ . '/../data/' . $filename; // dossier data/ à la racine du projet
-    if (!file_exists($path)) {
-        return [];
-    }
-    $json = file_get_contents($path);
-    return json_decode($json, true) ?? [];
-}
-
-/**
- * Écrire un tableau dans un fichier JSON
- */
-function db_write($filename, $data) {
-    $path = __DIR__ . '/../data/' . $filename;
-    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    file_put_contents($path, $json);
-}
-
