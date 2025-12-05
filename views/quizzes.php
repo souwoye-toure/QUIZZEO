@@ -16,7 +16,9 @@ $user = current_user();
     <title>Quiz disponibles</title>
 
     <!-- Le CSS doit obligatoirement être dans le head -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+   <link rel="stylesheet" href="/QUIZZEO/assets/css/style.css">
+   <link rel="stylesheet" href="/QUIZZEO/assets/css/login.css">
+
 </head>
 
 <body>

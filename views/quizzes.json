@@ -1,0 +1,23 @@
+[
+    {
+        "id": "q_php",
+        "title": "Quiz PHP",
+        "description": "Testez vos connaissances en PHP",
+        "author": "admin",
+        "status": "publi\u00e9"
+    },
+    {
+        "id": "q_sql",
+        "title": "Quiz SQL",
+        "description": "Requ\u00eates et bases de donn\u00e9es",
+        "author": "ecole",
+        "status": "publi\u00e9"
+    },
+    {
+        "id": "q_html",
+        "title": "Quiz HTML",
+        "description": "Balises et structure des pages web",
+        "author": "entreprise",
+        "status": "publi\u00e9"
+    }
+]

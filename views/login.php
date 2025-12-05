@@ -1,71 +1,63 @@
 <?php
-
-// Helpers (remonte d'un dossier)
 require_once __DIR__ . '/../includes/helpers.php';
-
-// Contrôleur utilisateur (remonte d'un dossier)
 require_once __DIR__ . '/../controller/userController.php';
-
-// Header (reste dans views)
-require_once __DIR__ . '/header.php';
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     handle_login_submit();
 }
+
 $error = get_flash('error');
 ?>
 
-<main class="container single">
-  <!-- Section principale, centrée dans un container -->
-  
-  <section class="card auth">
-    <!-- Carte visuelle contenant le formulaire d'authentification -->
-    
-    <h1>Connexion</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
 
-    <?php if ($error): ?>
-      <!-- Si une erreur existe (ex: mauvais identifiants), on l'affiche -->
-      <div class="alert error">
-        <?= htmlspecialchars($error) ?>
-        <!-- htmlspecialchars() empêche l'injection HTML -->
-      </div>
-    <?php endif; ?>
+    <!-- CSS principal du site (header + layout) -->
+    <link rel="stylesheet" href="/QUIZZEO/assets/css/style.css">
 
-    <form method="post" class="form">
-      <!-- Formulaire envoyé en méthode POST -->
+    <!-- CSS spécifique login neutre -->
+    <link rel="stylesheet" href="/QUIZZEO/assets/css/login.css">
+</head>
 
-      <label>Nom d'utilisateur
-        <!-- Champ texte pour le username -->
-        <input type="text" name="username" required>
-      </label>
+<body style="style = background-image: url('assets/img/background.png'); 
+             background-size: cover; 
+             background-position: center; 
+             background-repeat: no-repeat;">
 
-      <label>Mot de passe
-        <!-- Champ mot de passe -->
-        <input type="password" name="password" required>
-      </label>
+<!-- HEADER identique à index -->
+<?php include __DIR__ . '/../views/header.php'; ?>
 
-      <button class="btn primary" type="submit">
-        Se connecter
-      </button>
-      <!-- Bouton d’envoi du formulaire -->
-    </form>
+<main class="login-center">
+    <section class="login-card">
+        <h1>Connexion</h1>
 
-    <p class="hint">
-      <!-- Infos de test affichées sous le formulaire -->
-      Comptes de test :
-      <code>admin</code>,
-      <code>ecole</code>,
-      <code>entreprise</code>,
-      <code>user</code>
-      (mot de passe : <code>password</code>).
-    </p>
-    
-  </section>
+        <?php if ($error): ?>
+            <div class="alert error"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+
+        <form method="post" class="login-form">
+            <label>Nom d'utilisateur
+                <input type="text" name="username" required>
+            </label>
+
+            <label>Mot de passe
+                <input type="password" name="password" required>
+            </label>
+
+            <button type="submit" class="btn-primary">Se connecter</button>
+        </form>
+
+        <p class="test-info">
+            Comptes de test : admin, ecole, user (password : password)
+        </p>
+    </section>
 </main>
 
+<?php include __DIR__ . '/../views/footer.php'; ?>
 
-<?php
-require_once __DIR__ .'/../views/footer.php';
-?>
-
+</body>
+</html>
